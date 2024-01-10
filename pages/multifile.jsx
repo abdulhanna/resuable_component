@@ -97,7 +97,7 @@ const uploadFile = async (file, index) => {
         formData.append('originalname', file.name);
 
         try {
-          const response = await fetch('http://localhost:6001/chunk/upload1', {
+          const response = await fetch('http://localhost:6001/chunk/upload', {
             method: 'POST',
             body: formData,
           });
