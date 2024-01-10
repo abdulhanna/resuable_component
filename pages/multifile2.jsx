@@ -28,7 +28,7 @@ const FileUpload = () => {
 
       try {
        
-        const response = await fetch("http://10.0.0.242:6001/upload", {
+        const response = await fetch("http://localhost:6001/chunk/upload", {
           method: "POST",
           body: formData,
         });

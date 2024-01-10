@@ -97,7 +97,7 @@ const uploadFile = async (file, index) => {
         formData.append('originalname', file.name);
 
         try {
-          const response = await fetch('http://localhost:6001/upload', {
+          const response = await fetch('http://localhost:6001/chunk/upload1', {
             method: 'POST',
             body: formData,
           });
@@ -108,7 +108,7 @@ const uploadFile = async (file, index) => {
 
           const data = await response.json();
 
-          const tempStatus = `File ${index + 1} - Chunk ${chunkNumber + 1}/${totalChunks} uploaded successfully`;
+          const tempStatus = `File ${index + 1} ${file.name} - Chunk ${chunkNumber + 1}/${totalChunks} uploaded successfully`;
           setFileStatus((prevStatus) => {
             const newStatus = [...prevStatus];
             newStatus[index] = { status: tempStatus, progress: (chunkNumber + 1) * chunkProgress };
